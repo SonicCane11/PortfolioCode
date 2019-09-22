@@ -1,5 +1,9 @@
 /*
 	Sets up the shape and position of a newly spawned asteroid for a simple Asteroids game.
+	Asteroids spawn near one of several waypoints far away from the player. Asteroids start 
+	transparent and become more and more of a solid white color. When completely solid, the 
+	asteroid changes to its regular color and starts to move. Only at this point does the 
+	asteroid collide with the ship and bullets.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -27,7 +31,7 @@ public class AsteroidSpawner : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if (!isSpawned)
+	if (!isSpawned)
         {
             Color oldColor = spriteRenderer.color;
             spriteRenderer.color += new Color(0, 0, 0, Time.deltaTime);  // Make sprite more opaque, being solid by 1s
